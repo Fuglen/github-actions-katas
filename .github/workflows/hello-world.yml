@@ -69,4 +69,4 @@ jobs:
         name: code
         path: .
     - name: Execute performance test
-      run: chmod +x ci/performance-test.sh && ci/component-test.sh
+      run: chmod +x ci/performance-test.sh && ci/component-test.sh #This is a comment
