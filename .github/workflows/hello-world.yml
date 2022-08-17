@@ -2,10 +2,10 @@ name: Java CI
 on: push
 jobs:
 env:
-  docker_username: ${{secrets.DOCKER_USERNAME}}
-  docker_password: ${{secrets.DOCKER_TOKEN}}
-  github_commit: ${{GITHUB_COMMIT}}
-  GIT_COMMIT: <your git commit>
+  docker_username: ${{ secrets.DOCKER_USERNAME }}
+  docker_password: ${{ secrets.DOCKER_TOKEN }}
+  GIT_COMMIT: ${{ github.sha }}
+jobs:
   Clone-down:
     name: Clone down repo
     runs-on: ubuntu-latest
@@ -43,8 +43,8 @@ env:
         - name: Download a single artifact
           uses: actions/download-artifact@v2
           with:
-            name: my-artifact
-            path: path/to/download/artifact/
+            name: code
+            path: .
         - name: build docker
           run: chmod +x ci/build-docker.sh && ci/build-docker.sh
         - name: push docker
