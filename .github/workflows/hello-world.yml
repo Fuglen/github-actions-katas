@@ -57,7 +57,7 @@ jobs:
     - name: push docker
       run: chmod +x ci/push-docker.sh && ci/push-docker.sh
   Component-test:
-    runs-on: [self-hosted]
+    runs-on: [self-hosted] #pls work
     needs: [Docker-image]
     steps:
     - name: Download code
